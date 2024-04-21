@@ -24,25 +24,29 @@
     margin-right: 10px;
 }
 
-.submit-btn {
-    padding: 10px 60px;
+.submit-btn, .view-btn {
+    padding: 8px 40px;
     border-radius: 5px;
     background-color: #000000a9;
     outline: none !important;
     border: none !important;
+    text-decoration: none;
     color: wheat;
 }
 
-.submit-btn:hover {
+.submit-btn:hover, .view-btn:hover {
     transform: scale(1.03);
     transition: 0.2s ease-in-out;
 }
 
-.submit-btn:active {
+.submit-btn:active, .view-btn:active {
     transform: scale(0.99);
     transition: 0.2s ease-in-out;
 }
 
 .submit-btn-div {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }

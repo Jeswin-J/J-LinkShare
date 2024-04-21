@@ -1,0 +1,31 @@
+.view-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.key-input-group{
+    max-width: 300px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.key-input-group label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+}
+
+
+.view-link-form{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn-view {
+    display: flex;
+    align-items: end;
+    padding-left: 20px;
+}
