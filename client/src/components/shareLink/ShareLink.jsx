@@ -1,25 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
+import './ShareLink.css';
+
 
 function ShareLink() {
-    const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/hello')
-      .then(response => {
-        console.log(response);
-        setMessage(response.data.message);
-      })
-      .catch(error => {
-        console.error('Error fetching message:', error);
-      });
-  }, []);
+    return (
+        <Container>
+            <Row className='share-link-row'>
+                <Col lg={10} className='share-link-col'>        
+                    <form>
+                        <div className='url-input-group'>
+                            <label htmlFor="url-input">Share URL </label>
+                            <input type="url" id='url-input' className='form-control' placeholder='https://' required/>
+                        </div>
+                        
+                        <div className='url-input-group'>
+                            <label htmlFor="url-input">Description </label>
+                            <textarea type="url" id='url-input' className='form-control' placeholder='Short Description...' rows={3} required/>
+                        </div>
 
-  return (
-    <div>
-      <h1>{message}</h1>
-    </div>
-  )
+                        <div className='submit-btn-div'>
+                            <button type='submit' className='submit-btn'>Share</button>
+                        </div>  
+                        <div style={{margin: "30px"}}>
+                        <p>URL can be accessed with below Passkey</p>
+                        <h1>4444</h1>
+                        </div>
+                    </form>
+                </Col>
+            </Row>
+        </Container>
+    )
 }
 
-export default ShareLink
+export default ShareLink;

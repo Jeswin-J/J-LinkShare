@@ -1,0 +1,48 @@
+.share-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+
+.url-input-group {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.url-input-group label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+}
+
+
+.url-input-group label {
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    padding: 10px 60px;
+    border-radius: 5px;
+    background-color: #000000a9;
+    outline: none !important;
+    border: none !important;
+    color: wheat;
+}
+
+.submit-btn:hover {
+    transform: scale(1.03);
+    transition: 0.2s ease-in-out;
+}
+
+.submit-btn:active {
+    transform: scale(0.99);
+    transition: 0.2s ease-in-out;
+}
+
+.submit-btn-div {
+    margin-top: 30px;
+}
