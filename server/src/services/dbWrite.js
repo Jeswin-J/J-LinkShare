@@ -8,7 +8,7 @@ const writeLink = async (data = {}) => {
 
     try{
         await linkShareDB.put(params).promise()
-        return { success: true }
+        return { success: true, id: data.id }
     } catch(error){
         return { success: false}
     }
