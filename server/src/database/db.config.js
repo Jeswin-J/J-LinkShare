@@ -1,4 +1,4 @@
-import AWS from 'aws-sdk';
+const AWS = require('aws-sdk');
 
 AWS.config.update({
     region: 'us-east-1',
@@ -9,9 +9,9 @@ AWS.config.update({
 
 const linkShareDB = new AWS.DynamoDB.DocumentClient();
 
-const Table = 'linkShareDB'
+const Table = 'linkShareDB';
 
-export {
+module.exports = {
     linkShareDB,
     Table
 }
