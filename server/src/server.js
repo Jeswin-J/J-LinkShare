@@ -1,6 +1,5 @@
 // server.js
 require('dotenv').config();
-
 const express = require('express');
 const cors = require('cors');
 
@@ -13,8 +12,11 @@ app.use(cors({
     origin: 'http://localhost:3000',
 }));
 
-
 app.use('', shareRoutes);
 
 const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => { 
+    console.log(`\n\n\n\t||||| --> J-LINK SHARE <-- |||||\n`);
+    console.log(`\n|||||  --> CREATED BY JESWIN JOSEPH J <-- |||||\n`);
+    console.log(`\n||||| --> SERVER RUNNING ON PORT ${PORT} <-- |||||\n\n\n`);
+});

@@ -8,7 +8,9 @@ function generateId() {
 
 exports.shareLink = async (req, res) => {
 
-    const { url, duration } = req.body;
+    const { url, description } = req.body;
+    
+    console.log("\n////// --  POST REQUEST TO SHARE LINK  -- //////\n");
 
     let linkId = generateId();
 
@@ -16,30 +18,33 @@ exports.shareLink = async (req, res) => {
         'id': linkId,
         'creationTime': new Date().getTime(),
         'url': url,
-        'duration': duration,
+        'description': description,
     }
 
     writeLink(newLink)
     .then(result => {
         console.log(result);
         if (result.success) {
-            res.status(200).json({ message: 'Link Shared successfully', id: result.id });
+            res.status(200).json({ message: 'Link Shared successfully', access_key: result.id });
         } else {
             res.status(500).json({ error: 'Error Sharing Link... Please try again after sometime!' });
         }
     })
     .catch(error => {
-        console.error('Error writing link to the database:', error);
+        console.log("\n////// --  ERROR WRITING TO DB  -- //////\n");
         res.status(500).json({ error: 'Error Sharing link!' });
     });
 }
 
 
 exports.viewLink = async (req, res) => {
-    const { id } = req.body;
+    const { accessKey } = req.body;
+
+    console.log("\n////// -->  POST REQUEST TO VIEW LINK  <-- //////\n");
 
     try {
-        const item = await getLinkbyId(id);
+        const item = await getLinkbyId(accessKey);
+        console.log(item);
         if (item.success && item.data.url) {
 
             const timestamp = item.data.creationTime;
@@ -50,14 +55,19 @@ exports.viewLink = async (req, res) => {
             const hours = String(date.getHours()).padStart(2, '0');
             const minutes = String(date.getMinutes()).padStart(2, '0');
             const seconds = String(date.getSeconds()).padStart(2, '0');
-            const created_on = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            const created_on = `${day}-${month}-${year}`;
+            const created_at = `${hours}:${minutes}:${seconds} Hrs`;
 
-            res.status(200).json({ url: item.data.url, created_on: created_on });
+            res.status(200).json({ 
+                url: item.data.url, 
+                description: item.data.description, 
+                created_on: created_on,
+                created_at: created_at });
         } else {
             res.status(400).json({ error: 'Invalid Passkey' });
         }
     } catch (error) {
-        console.error('Error retrieving link:', error);
+        console.log("\n////// -->  ERROR RETRIEVING LINK FROM DB <-- //////\n");
         res.status(500).json({ error: 'Error retrieving link' });
     }
 }
