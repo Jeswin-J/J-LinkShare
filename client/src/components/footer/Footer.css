@@ -3,3 +3,13 @@ footer{
   padding: 10px 20px;
   bottom: 0;
 }
+
+.social-links {
+  text-decoration: none;
+  color: wheat;
+}
+
+.social-links:hover {
+  text-decoration: none;
+  color: bisque;
+}
