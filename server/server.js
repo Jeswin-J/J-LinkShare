@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+// const serverless = require('serverless-http');
 
 const shareRoutes = require('./routes/shareRoutes');
 
@@ -20,3 +21,6 @@ app.listen(PORT, () => {
     console.log(`\n|||||  --> CREATED BY JESWIN JOSEPH J <-- |||||\n`);
     console.log(`\n||||| --> SERVER RUNNING ON PORT ${PORT} <-- |||||\n\n\n`);
 });
+
+
+// module.exports.handler = serverless(app);
